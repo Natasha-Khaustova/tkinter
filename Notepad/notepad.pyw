@@ -52,9 +52,13 @@ def show_about():
     second.geometry('300x200')
     lb1 = Label(second, text="Это программа блокнот нужна для записей")
     lb2 = Label(second, text="Версия программы 1.0")
+    lb3=Label(second, text="Разработчик - Хаустова Н.Г.")
+    lb4=Label(second, text="Но программа с багами, сорян:)")
     bt1 = Button(second, text="Закрыть", command=lambda: second.destroy())
     lb1.pack()
     lb2.pack()
+    lb3.pack()
+    lb4.pack()
     bt1.pack()
 
 def show_help():
@@ -62,6 +66,11 @@ def show_help():
 #Создаем основное окно
 root=Tk()
 root.title('My note 1')
+
+def cancellation():
+    root.destroy()
+def dele ():
+    text.delete(1.0, END)
 
 #Ограничиваем работу кнопки разворота окна
 root.minsize(width=400, height=400)
@@ -100,6 +109,13 @@ helpMenu = Menu(menuBar)
 menuBar.add_cascade(label="Help", menu=helpMenu)
 helpMenu.add_command(label="Help", command=show_help)
 helpMenu.add_command(label="About", command=show_about)
+
+#Создаем четвертый выпадающий пункт меню
+delMenu = Menu(menuBar)
+menuBar.add_cascade(label="Delete", menu=delMenu)
+delMenu.add_command(label="Пофиг", command=cancellation)
+delMenu.add_command(label="Нефиг")
+delMenu.add_command(label="Нафиг", command=dele)
 
 #Закрепляем объект Меню на главном окне
 root.config(menu=menuBar)
