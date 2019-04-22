@@ -1,6 +1,11 @@
+#1 random circle
 from tkinter import *
+from random import randint, choice
 root = Tk()
-canv = Canvas(root, width=200, height=100)
+canv = Canvas(root, width=400, height=400)
 canv.pack()
-canv.create_oval (30, 30, 90, 90, fill='green')
-mainloop()
+R = randint(10, 40)  # radius
+x = randint(R, 400 - R)
+y = randint(R, 400 - R)
+canv.create_oval(x-R, y-R, x+R, y+R, fill='blue')
+root.mainloop()
